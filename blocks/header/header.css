@@ -265,19 +265,50 @@ header nav .nav-sections ul > li > ul > li {
 
 header nav .nav-tools {
   grid-area: tools;
-} */ 
+} */
 
-
-.field-header-panel{
-  background-color: #10103d;
+.field-header-panel {
+    background-color: #10103d;
 }
 
-.field-header-panel .field-hdfc-logo{
-  position: relative;
+.field-header-panel .field-hdfc-logo {
+    position: relative;
     bottom: -10px;
     left: 74px;
 }
 
-.field-security-logo img{
-  margin-left: 400px;
+.field-security-logo img {
+    margin-left: 520px;
+}
+
+/* Responsiveness */
+@media (width >= 480px) {
+    /* Large mobile */
+    .field-hdfc-logo img {
+        max-width: 200%;
+        position: relative;
+        bottom: -12px;
+    }
+
+    .field-security-logo img {
+        margin-left: 220px;
+        max-width: 200%;
+        position: relative;
+        bottom: -5px;
+    }
+}
+
+@media (width >= 768px) {
+    .field-header-panel .field-hdfc-logo {
+        position: relative;
+        bottom: -3px;
+    }
+    .field-security-logo {
+        position: relative;
+        bottom: -6px;
+    }
+}
+
+@media (width >= 1024px) {
+    /* Laptop */
 }
