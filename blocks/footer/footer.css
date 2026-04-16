@@ -18,34 +18,38 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 } */
-.footer-wrapper {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
+/* Make footer go to bottom when content is less */
+main {
+    min-height: calc(100vh - 85px); /* footer height */
 }
 
+/* Footer wrapper */
+.footer-wrapper {
+    margin-top: auto;
+}
+
+/* Footer styling */
 .footer {
     background: #0a0a4f;
     min-height: 85px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
     text-align: center;
+    color: #fff;
+    border-radius: 0;
 }
 
+/* Footer text */
 .footer::before {
     content: "© Copyright HDFC Bank Ltd. 2026";
     font-size: 18px;
     font-weight: 400;
 }
 
+/* Hide default content */
 .footer > * {
     display: none;
-}
-
-main {
-    padding-bottom: 85px;
 }
