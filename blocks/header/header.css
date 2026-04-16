@@ -266,103 +266,89 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 } */
-.field-header-panel {
-    background-color: #10103d;
-}
 
-/* Base */
-.field-header-panel {
-    position: relative; /* required for absolute positioning */
-}
+.header {
+    background: #03164a;
 
-.field-hdfc-logo img {
-    max-width: 100%;
+    min-height: 72px;
+
+    padding: 0 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
     position: relative;
-    left: 0;
-    bottom: 0;
+
+    width: 100vw;
+
+    margin-left: calc(-50vw + 50%);
+
+    border-radius: 0;
 }
 
-.field-security-logo {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+.header::before {
+    content: "HDFC BANK";
 
-.field-security-logo img {
-    max-width: 100%;
-    height: auto;
-}
+    display: inline-flex;
 
-/* Mobile */
-@media (width <= 480px) {
-    .field-hdfc-logo img {
-        max-width: 200%;
-        left: 10px;
-        bottom: -2px;
-    }
+    align-items: center;
 
-    .field-security-logo {
-        right: 10px;
-    }
+    justify-content: center;
 
-    .field-security-logo img {
-        max-width: 70px;
-    }
-}
+    background: #0a2d7c;
 
-/* Tablet */
-@media (480px < width <= 768px) {
-    .field-hdfc-logo img {
-        max-width: 130%;
-        left: 30px;
-        bottom: -3px;
-    }
+    color: #fff;
 
-    .field-security-logo {
-        right: 15px;
-    }
+    font-size: 14px;
 
-    .field-security-logo img {
-        max-width: 80px;
-    }
-}
+    font-weight: 700;
 
-/* Laptop */
-@media (768px < width <= 1024px) {
-    .field-header-panel {
-        padding: 10px !important;
-    }
-    .field-hdfc-logo img {
-        max-width: 140%;
-        left: 20px;
-        bottom: -5px;
-    }
+    letter-spacing: 0.5px;
 
-    .field-security-logo {
-        right: 20px;
+    height: 28px;
+
+    padding: 0 14px 0 24px;
+
+    border: 1px solid #ffffff;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    box-shadow: inset 10px 0 0 #e21b23;
+
+    /* right secure pill */
+
+    .header::after {
+        content: "100% SAFE";
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: #39b56a;
+
+        color: #fff;
+
+        font-size: 10px;
+
+        font-weight: 700;
+
+        border-radius: 12px;
+
+        padding: 4px 10px;
+
+        line-height: 1;
     }
 
-    .field-security-logo img {
-        max-width: 120px;
-    }
-}
-/* Desktop / Large screens */
-@media (width > 1024px) {
-    .field-header-panel {
-        padding: 10px !important;
-    }
-    .field-hdfc-logo img {
-        max-width: 120%;
-        bottom: -4px;
-        left: 30px;
-    }
+    /* hide any inner text */
 
-    .field-security-logo {
-        right: 30px;
-    }
-
-    .field-security-logo img {
-        max-width: 140px;
+    .header > * {
+        display: none;
     }
 }
