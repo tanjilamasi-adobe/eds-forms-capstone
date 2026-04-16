@@ -270,61 +270,78 @@ header nav .nav-tools {
     background-color: #10103d;
 }
 
+
+/* Base */
+.field-header-panel {
+    position: relative; /* required for absolute positioning */
+}
+
 .field-hdfc-logo img {
     max-width: 100%;
     position: relative;
-    bottom: 0;
     left: 0;
+    bottom: 0;
+}
+
+.field-security-logo {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .field-security-logo img {
     max-width: 100%;
-    position: relative;
-    bottom: 0;
-    margin-left: 0;
+    height: auto;
 }
 
 /* Mobile */
 @media (width <= 480px) {
     .field-hdfc-logo img {
-        max-width: 200%;
+        max-width: 140%;
         left: 10px;
         bottom: -3px;
     }
 
+    .field-security-logo {
+        right: 10px;
+    }
+
     .field-security-logo img {
-        max-width: 180%;
-        bottom: -5px;
-        margin-left: 200px;
+        max-width: 90px;
     }
 }
 
 /* Tablet */
 @media (480px < width <= 768px) {
     .field-hdfc-logo img {
-        max-width: 200%;
+        max-width: 160%;
         left: 10px;
-        bottom: -15px;
+        bottom: -10px;
+    }
+
+    .field-security-logo {
+        right: 15px;
     }
 
     .field-security-logo img {
-        max-width: 180%;
-        bottom: -5px;
-        margin-left: 430px;
+        max-width: 110px;
     }
 }
 
 /* Laptop */
 @media (768px < width <= 1024px) {
     .field-hdfc-logo img {
-        max-width: 150%;
-        bottom: -10px;
-        left: 40px;
+        max-width: 140%;
+        left: 20px;
+        bottom: -5px;
+    }
+
+    .field-security-logo {
+        right: 20px;
     }
 
     .field-security-logo img {
-        max-width: 158%;
-        bottom: -2px;
-        margin-left: 600px;
+        max-width: 120px;
     }
 }
