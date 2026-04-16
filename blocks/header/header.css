@@ -284,12 +284,13 @@ header nav .nav-tools {
     margin-left: 0;
 }
 
-@media (max-width >= 425px) {
+@media (max-width >= 480px) {
     .field-hdfc-logo img {
         max-width: 200%;
         position: relative;
         left: 10px;
         bottom: -3px;
+        border: 3px solid red !important;
     }
 
     .field-security-logo img {
