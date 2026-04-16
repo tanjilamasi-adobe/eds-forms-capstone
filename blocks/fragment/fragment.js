@@ -3,7 +3,7 @@
  * Include content on a page as a fragment.
  * https://www.aem.live/developer/block-collection/fragment
  */
-
+/*
 import {
   decorateMain,
 } from '../../scripts/scripts.js';
@@ -17,6 +17,9 @@ import {
  * @param {string} path The path to the fragment
  * @returns {HTMLElement} The root element of the fragment
  */
+
+
+/*
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
@@ -56,3 +59,4 @@ export default async function decorate(block) {
     }
   }
 }
+*/
