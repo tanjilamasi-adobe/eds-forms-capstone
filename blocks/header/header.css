@@ -271,3 +271,31 @@ header nav .nav-tools {
     background-color: #10103d;
 }
 
+.field-hdfc-logo img {
+    max-width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.field-security-logo img {
+    max-width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-left: 0;
+}
+
+@media (max-width >= 425px) {
+    .field-hdfc-logo img {
+        max-width: 200%;
+        position: relative;
+        left: 10px;
+        bottom: -3px;
+    }
+
+    .field-security-logo img {
+        max-width: 180%;
+        position: relative;
+        bottom: -5px;
+        margin-left: 200px;
+    }
+}
