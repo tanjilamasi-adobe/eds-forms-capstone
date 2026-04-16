@@ -270,8 +270,6 @@ header nav .nav-tools {
 
 .field-header-panel{
   background-color: #10103d;
-  display: grid;
-  gap: 420px !important;
 }
 
 .field-header-panel .field-hdfc-logo{
