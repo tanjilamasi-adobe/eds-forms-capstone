@@ -331,7 +331,7 @@ header nav .nav-tools {
 /* Laptop */
 @media (768px < width <= 1024px) {
     .field-header-panel {
-        padding: 10px;
+        padding: 10px !important;
     }
     .field-hdfc-logo img {
         max-width: 140%;
@@ -350,7 +350,7 @@ header nav .nav-tools {
 /* Desktop / Large screens */
 @media (width > 1024px) {
     .field-header-panel {
-        padding: 10px;
+        padding: 10px !important;
     }
     .field-hdfc-logo img {
         max-width: 120%;
