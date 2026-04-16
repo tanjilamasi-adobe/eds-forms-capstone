@@ -290,7 +290,6 @@ header nav .nav-tools {
         position: relative;
         left: 10px;
         bottom: -3px;
-        border: 3px solid red !important;
     }
 
     .field-security-logo img {
@@ -298,5 +297,34 @@ header nav .nav-tools {
         position: relative;
         bottom: -5px;
         margin-left: 200px;
+    }
+}
+@media (width <= 768px) {
+    .field-hdfc-logo img {
+        max-width: 200%;
+        position: relative;
+        left: 10px;
+        bottom: -15px;
+    }
+    .field-security-logo img {
+        max-width: 180%;
+        position: relative;
+        bottom: -5px;
+        margin-left: 430px;
+    }
+}
+
+@media (width <= 1024px) {
+    .field-hdfc-logo img {
+        max-width: 150%;
+        position: relative;
+        bottom: -10px;
+        left: 40px;
+    }
+    .field-security-logo img {
+        max-width: 158%;
+        position: relative;
+        bottom: -2px;
+        margin-left: 600px;
     }
 }
