@@ -285,7 +285,7 @@ header nav .nav-tools {
     display: inline-block;
     width: 120px;   /* adjust as needed */
     height: 32px;
-    background-image: url("/assets/hdfc-logo.svg");
+     background-image: url("https://author-p96753-e1523920.adobeaemcloud.com/content/dam/da-eds-assets/hdfc-logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left center;
