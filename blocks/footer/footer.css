@@ -1,4 +1,4 @@
-footer {
+/* footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
 }
@@ -17,4 +17,42 @@ footer .footer p {
   footer .footer > div {
     padding: 40px 32px 24px;
   }
+} */
+
+.field-footer-panel{
+  background: #10103d;
+}
+.field-footer-text p {
+    color: #fff !important;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 12px; /* default (mobile base) */
+}
+
+/* Mobile */
+@media (width <= 480px) {
+    .field-footer-text p {
+        font-size: 12px;
+    }
+}
+
+/* Tablet */
+@media (480px < width <= 768px) {
+    .field-footer-text p {
+        font-size: 13px;
+    }
+}
+
+/* Laptop */
+@media (768px < width <= 1024px) {
+    .field-footer-text p {
+        font-size: 14px;
+    }
+}
+
+/* Desktop / Large screens */
+@media (width > 1024px) {
+    .field-footer-text p {
+        font-size: 16px;
+    }
 }
