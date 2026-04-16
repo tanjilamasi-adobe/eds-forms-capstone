@@ -282,7 +282,7 @@ header nav .nav-tools {
 .header::before {
     content: "";
     display: inline-block;
-    width: 120px;
+    width: 150px;
     height: 32px;
     background-image: url("https://author-p96753-e1523920.adobeaemcloud.com/content/dam/da-eds-assets/hdfc-logo.svg");
     background-size: contain;
@@ -295,8 +295,8 @@ header nav .nav-tools {
      content: "";
     display: inline-block;
 
-    width: 20px;
-    height: 20px;
+    width: 150px;
+    height: 140px;
 
     background-image: url("https://author-p96753-e1523920.adobeaemcloud.com/content/dam/da-eds-assets/security-icon.png");
     background-repeat: no-repeat;
