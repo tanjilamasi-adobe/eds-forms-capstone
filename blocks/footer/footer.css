@@ -32,14 +32,14 @@ footer .footer p {
 /* Mobile */
 @media (width <= 480px) {
     .field-footer-text p {
-        font-size: 12px;
+        font-size: 10px !important;
     }
 }
 
 /* Tablet */
 @media (480px < width <= 768px) {
     .field-footer-text p {
-        font-size: 13px;
+        font-size: 13px !important;
     }
 }
 
