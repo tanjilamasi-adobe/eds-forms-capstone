@@ -277,8 +277,19 @@ header nav .nav-tools {
     left: 74px;
 }
 
+
+
+.field-hdfc-logo img {
+  max-width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
 .field-security-logo img {
-    margin-left: 520px;
+  max-width: 100%;
+  position: relative;
+  bottom: 0;
+  margin-left: 0;
 }
 
 /* Responsiveness */
@@ -311,4 +322,7 @@ header nav .nav-tools {
 
 @media (width >= 1024px) {
     /* Laptop */
+    .field-security-logo img {
+    margin-left: 520px;
+}
 }
