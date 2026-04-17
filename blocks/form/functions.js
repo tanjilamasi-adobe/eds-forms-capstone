@@ -56,43 +56,13 @@ function maskMobileNumber(mobileNumber) {
   return ` ${'*'.repeat(5)}${value.substring(5)}`;
 }
 
-let resendCount = 0;
-const maxAttempts = 3;
-let interval;
-let timeLeft = 30;
+/** 
+ * Custom Functions
+*/
 
-/**
- * Handles resend OTP logic (attempts + initial timer)
- * @returns {object}
- */
-function resendOtpHandler() {
-  if (resendCount >= maxAttempts) {
-    return {
-      timerText: 'No more resend attempts left',
-      attemptsText: '0/3 attempt(s) left',
-      disableButton: true,
-    };
-  }
 
-  resendCount++;
-  timeLeft = 30;
-
-  const attemptsLeft = maxAttempts - resendCount;
-
-  clearInterval(interval);
-
-  interval = setInterval(() => {
-    timeLeft--;
-  }, 1000);
-
-  return {
-    timerText: `Resend OTP in: ${timeLeft} secs`,
-    attemptsText: `${attemptsLeft}/3 attempt(s) left`,
-    disableButton: true,
-  };
-}
 
 // eslint-disable-next-line import/prefer-default-export
 export {
-  getFullName, days, submitFormArrayToString, maskMobileNumber, resendOtpHandler,
+  getFullName, days, submitFormArrayToString, maskMobileNumber,
 };

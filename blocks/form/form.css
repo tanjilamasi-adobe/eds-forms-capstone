@@ -1,6 +1,6 @@
 :root {
     --background-color-primary: #fff;
-    --label-color: #666;
+    --label-color: #000000;
     --border-color: #818a91;
     --form-error-color: #ff5f3f;
     --button-primary-color: #5F8DDA;
@@ -792,4 +792,28 @@ main div.form-wrapper {
 /* Expand height for multi-select dropdowns (array types) */
 main .form form select[multiple] {
     height: calc(42px + 50px);
+}
+
+/* My css */
+.field-incometype .radio-wrapper{
+    width: 15rem;
+}
+
+.field-salaryinfopanel .field-salary-info-text{
+    background-color: #fffc5f69;
+    border: 1px solid rgb(105, 0, 0) !important;
+    width: 14.5rem !important;
+    border-radius: 20px;
+}
+
+.field-salaryinfopanel > div > p{
+    font-size: 12px !important;
+    text-align: justify;
+    margin: 10px !important;
+    color: #9d3030 !important;
+    font-weight: bold;
+}
+
+.field-getotp button{
+    border-radius: 20px !important;
 }
