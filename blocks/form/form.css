@@ -808,10 +808,8 @@ main .form form select[multiple] {
 
 .field-salaryinfopanel > div > p{
     font-size: 12px !important;
-    text-align: justify;
     margin: 10px !important;
     color: #9d3030 !important;
-    font-weight: bold;
 }
 
 .field-getotp button{
