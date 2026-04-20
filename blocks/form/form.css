@@ -806,10 +806,10 @@ main .form form select[multiple] {
     border-radius: 20px;
 }
 
-.field-salaryinfopanel > div > p{
+.field-salaryinfopanel > div > p > p{
     font-size: 12px !important;
     margin: 10px !important;
-    color: #9d3030 !important;
+    color: #7d4242 !important;
 }
 
 .field-getotp button{
