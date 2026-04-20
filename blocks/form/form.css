@@ -801,7 +801,7 @@ main .form form select[multiple] {
 
 .field-salaryinfopanel .field-salary-info-text{
     background-color: #fffc5f69;
-    border: 1px solid rgb(105, 0, 0) !important;
+    border: 1px solid rgb(93 0 0 / 40%) !important;
     width: 14.5rem !important;
     border-radius: 20px;
 }
@@ -810,6 +810,7 @@ main .form form select[multiple] {
     font-size: 12px !important;
     margin: 10px !important;
     color: #7d4242 !important;
+    text-align: justify;
 }
 
 .field-getotp button{
