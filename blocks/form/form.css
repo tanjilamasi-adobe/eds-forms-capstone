@@ -7,8 +7,8 @@
     --button-secondary-color: #666;
     --button-primary-hover-color: #035fe6;
     --form-font-size-m: 22px;
-    --form-font-size-s: 18px;
-    --form-font-size-xs: 16px;
+    --form-font-size-s: 15px;
+    --form-font-size-xs: 14px;
     --form-background-color: var(--background-color-primary);
     --form-padding: 0 10px;
     --form-columns: 12;
@@ -82,7 +82,7 @@ main .form pre {
 form output {
     display: block;
     font-weight: 700;
-    font-size: 1.625rem;
+    font-size: 0.875rem;
 }
 
 form:not(.edit-mode) [data-visible="false"] {
@@ -126,7 +126,6 @@ main .form .field-description {
 
 main .form form .field-invalid .field-description {
     color: var(--form-error-color);
-    font-weight: 700;
 }
 
 /**
@@ -277,6 +276,7 @@ main .form form fieldset > .checkbox-wrapper {
 main .form .radio-wrapper label,
 main .form .checkbox-wrapper label {
     flex-basis: calc(100% - 24px);
+    text-align: justify;
 }
 
 main .form fieldset.link .checkbox-wrapper label {
@@ -812,10 +812,16 @@ main .form form select[multiple] {
 }
 
 /* My css */
+
+/* ------------------------------------------------------------ */
+/* Page 1 - styles */
+
+/* Income type */
 .field-incometype .radio-wrapper {
     width: 15rem;
 }
 
+/* Salary info text */
 .field-salary-info-text {
     margin-top: -20px !important;
     width: 16rem !important;
@@ -826,15 +832,10 @@ main .form form select[multiple] {
     border: 1px solid rgb(93 0 0 / 40%) !important;
     width: 14.5rem !important;
     border-radius: 20px;
+    box-sizing: border-box;
 }
 
-.field-salaryinfopanel > div > p  {
-    font-size: 12px !important;
-    margin: 10px !important;
-    color: #7d4242 !important;
-    text-align: justify;
-}
-
+.field-salaryinfopanel > div > p,
 .field-salaryinfopanel > div > p > p {
     font-size: 12px !important;
     margin: 10px !important;
@@ -842,6 +843,390 @@ main .form form select[multiple] {
     text-align: justify;
 }
 
+/* ------------------------------------------------------------ */
+/* Mobile */
+@media (width <= 480px) {
+    .field-welcome-offer-panel {
+        margin: 0 auto !important;
+    }
+
+    .field-mobilenumber,
+    .field-dob,
+    .field-incometype {
+        grid-column: span 12 !important;
+        margin-top: 0 !important;
+    }
+
+    label,
+    legend {
+        font-size: 13px !important;
+    }
+
+    input[type="text"] {
+        width: 19rem !important;
+        height: 2.3rem !important;
+        margin-bottom: 5px !important;
+        font-size: 14px !important;
+    }
+
+    .field-mobilenumber .field-description,
+    .field-invalid .field-description {
+        font-size: 11px !important;
+    }
+
+    /* Income type */
+    .field-incometype {
+        margin: 7px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+    }
+
+    .field-incometype .radio-wrapper {
+        margin: 1px !important;
+        width: 4.8rem !important;
+    }
+
+    .field-incometype .radio-wrapper[data-id="incometype-1"] {
+        width: 11rem !important;
+    }
+
+    .field-incometype label {
+        display: inline-block;
+        width: auto !important;
+        max-width: fit-content;
+    }
+
+    input[type="checkbox"],
+    main .form input[type="radio"] {
+        width: 13px !important;
+        height: 13px !important;
+    }
+
+    /* Consent section */
+    .field-consent-section {
+        margin-top: -20px !important;
+    }
+
+    .field-consent-text-one label,
+    .field-consent-text-two label {
+        max-width: 17.4rem !important;
+    }
+
+    .field-consent-text-one .checkbox-wrapper,
+    .field-consent-text-two .checkbox-wrapper {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+
+    .field-consent-text-one input[type="checkbox"],
+    .field-consent-text-two input[type="checkbox"] {
+        width: 13px !important;
+        margin-top: 3px !important;
+        position: relative !important;
+    }
+
+    .field-consent-text-one input[type="checkbox"] {
+        top: -32px !important;
+    }
+
+    .field-consent-text-two input[type="checkbox"] {
+        top: -53px;
+    }
+
+    /* Salary info */
+    .field-salary-info-text {
+        margin-top: -22px !important;
+        border-radius: 8px !important;
+        width: 100% !important;
+    }
+
+    .field-salaryinfopanel > div > p,
+    .field-salaryinfopanel > div > p > p {
+        margin: 4px !important;
+        font-size: 11px !important;
+    }
+
+    /* Terms text */
+    .field-terms-privacy-text > p,
+    .field-terms-privacy-text > p > p {
+        font-size: 14px !important;
+    }
+
+    .field-terms-privacy-text > p > a,
+    .field-terms-privacy-text > p > p > a {
+        font-size: 13px !important;
+    }
+
+    .field-getotp {
+        width: 16rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: -20px !important;
+    }
+    .field-getotp .button {
+        margin: 0 auto !important;
+        width: 8.5em;
+        padding: 0;
+        font-size: 12px !important;
+        border-radius: 11px !important;
+        height: 37px;
+        background: #007bff;
+    }
+}
+@media (480px < width <= 768px) {
+    .field-welcome-offer-panel {
+        margin: 0 auto !important;
+    }
+
+    .field-mobilenumber,
+    .field-dob,
+    .field-incometype {
+        grid-column: span 6 !important;
+        margin-top: 0 !important;
+    }
+
+    label,
+    legend {
+        font-size: 14px !important;
+    }
+
+    input[type="text"] {
+        width: 19rem !important;
+        height: 2.3rem !important;
+        margin-bottom: 5px !important;
+        font-size: 14px !important;
+    }
+
+    .field-mobilenumber .field-description,
+    .field-invalid .field-description {
+        font-size: 11px !important;
+    }
+
+    /* Income type */
+    .field-incometype {
+        margin: 5px !important;
+        margin-top: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 124px !important;
+    }
+
+    .field-incometype .radio-wrapper {
+        margin: 1px !important;
+        width: 7.8rem !important;
+    }
+
+    .field-incometype .radio-wrapper[data-id="incometype-1"] {
+        width: 12rem !important;
+    }
+
+    .field-incometype label {
+        display: inline-block;
+        width: auto !important;
+        max-width: fit-content;
+    }
+
+    input[type="checkbox"],
+    main .form input[type="radio"] {
+        width: 13px !important;
+        height: 13px !important;
+    }
+
+    /* Consent section */
+    .field-consent-section {
+        margin-top: -20px !important;
+    }
+
+    .field-consent-text-one label,
+    .field-consent-text-two label {
+        max-width: 37.4rem !important;
+    }
+
+    .field-consent-text-one .checkbox-wrapper,
+    .field-consent-text-two .checkbox-wrapper {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+
+    .field-consent-text-one input[type="checkbox"],
+    .field-consent-text-two input[type="checkbox"] {
+        width: 13px !important;
+        margin-top: 3px !important;
+        position: relative !important;
+    }
+
+    .field-consent-text-one input[type="checkbox"] {
+        top: -32px !important;
+    }
+
+    .field-consent-text-two input[type="checkbox"] {
+        top: -53px;
+    }
+
+    /* Salary info */
+    .field-salary-info-text {
+        margin-top: -22px !important;
+        border-radius: 8px !important;
+        width: 100% !important;
+    }
+
+    .field-salaryinfopanel > div > p,
+    .field-salaryinfopanel > div > p > p {
+        margin: 4px !important;
+        font-size: 11px !important;
+    }
+
+    /* Terms text */
+    .field-terms-privacy-text > p,
+    .field-terms-privacy-text > p > p {
+        font-size: 14px !important;
+    }
+
+    .field-terms-privacy-text > p > a,
+    .field-terms-privacy-text > p > p > a {
+        font-size: 13px !important;
+    }
+
+    .field-getotp {
+        width: 16rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: -20px !important;
+    }
+    .field-getotp .button {
+        margin: 0 auto !important;
+        width: 8.5em;
+        padding: 0;
+        font-size: 12px !important;
+        border-radius: 11px !important;
+        height: 37px;
+        background: #007bff;
+    }
+}
+
+
+/* ------------------------------------------------------------ */
+
+/* Get OTP button */
 .field-getotp button {
     border-radius: 20px !important;
+}
+
+/* OTP sent text */
+.field-otp-sent-text {
+    color: black;
+}
+
+.field-otp-sent-text u {
+    color: #0039ff;
+}
+
+/* Mobile */
+@media (width <= 480px) {
+    .field-otp-sent-text > p,
+    .field-otp-sent-text > p > p {
+        width: 19rem !important;
+        font-size: 12px !important;
+    }
+}
+
+/* Tablet */
+@media (480px < width <= 768px) {
+    .field-otp-sent-text > p,
+    .field-otp-sent-text > p > p {
+        width: 100% !important;
+        max-width: 35rem !important;
+        font-size: 14px !important;
+    }
+}
+
+/* Laptop */
+@media (768px < width <= 1024px) {
+    .field-otp-sent-text > p,
+    .field-otp-sent-text > p > p {
+        width: 100% !important;
+        max-width: 35rem !important;
+        font-size: 15px !important;
+    }
+}
+
+/* Desktop */
+@media (1024px < width) {
+    .field-otp-sent-text > p,
+    .field-otp-sent-text > p > p {
+        width: 100% !important;
+        max-width: 42rem !important;
+        font-size: 15px !important;
+    }
+}
+
+/* Resend OTP button */
+.field-resendotpbtn {
+    margin: 0 !important;
+}
+
+.field-resendotpbtn button {
+    background: blue !important;
+    padding: 8px !important;
+    font-size: 12px !important;
+    border-radius: 15px !important;
+}
+
+/* Mobile */
+@media (width <= 480px) {
+    .field-resendotpbtn button {
+        width: 73px !important;
+        font-size: 10px !important;
+        padding: 6px !important;
+        margin-top: 19px !important;
+    }
+}
+
+/* Tablet */
+@media (480px < width <= 768px) {
+    .field-resendotpbtn button {
+        width: 85px !important;
+        font-size: 11px !important;
+        padding: 8px !important;
+        margin-top: 16px !important;
+    }
+}
+
+/* Laptop */
+@media (768px < width <= 1024px) {
+    .field-resendotpbtn button {
+        width: 96px !important;
+        font-size: 12px !important;
+        padding: 10px !important;
+        margin-top: 14px !important;
+    }
+}
+
+/* Desktop */
+@media (1024px < width < 1440px) {
+    .field-resendotpbtn button {
+        width: 105px !important;
+        font-size: 13px !important;
+        padding: 11px !important;
+        margin-top: 12px !important;
+    }
+}
+
+/* Large screen */
+@media (width >= 1440px) {
+    .field-resendotpbtn button {
+        width: 112px !important;
+        font-size: 13px !important;
+        padding: 12px !important;
+        margin-top: 10px !important;
+    }
 }
