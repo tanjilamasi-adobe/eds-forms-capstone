@@ -60,17 +60,56 @@ function maskMobileNumber(mobileNumber) {
  * Custom Functions
  */
 
+let otpTimerInterval;
+
 /**
- * Starts OTP resend timer
+ * Use this on Get OTP success
  * @returns {string}
  */
 function startOtpTimer() {
+  sessionStorage.setItem("otpAttemptsLeft", "3");
+
+  const attemptsText = document.querySelector(
+    ".field-attempts-left p p, .field-attempts-left p",
+  );
+  if (attemptsText) {
+    attemptsText.innerText = "3/3 attempt(s) left";
+  }
+
+  runOtpTimer();
+
+  return "Timer Started";
+}
+
+/**
+ * Use this on Resend OTP success
+ * @returns {string}
+ */
+function handleResendOtpAttempt() {
+  const attemptsText = document.querySelector(
+    ".field-attempts-left p p, .field-attempts-left p",
+  );
   const resendBtn = document.querySelector(".field-resendotpbtn button");
-  const timerText = document.querySelector(
-    ".field-resend-and-attempts-text strong",
+
+  let attemptsLeft = Number(sessionStorage.getItem("otpAttemptsLeft") || "3");
+
+  attemptsLeft -= 1;
+  sessionStorage.setItem("otpAttemptsLeft", String(attemptsLeft));
+
+ if (attemptsLeft <= 0) {
+  const timerWrapper = document.querySelector(
+    ".field-resend-and-attempts-text",
   );
 
-  let timeLeft = 30;
+  if (attemptsText) {
+    attemptsText.innerText = "";
+  }
+
+  if (timerWrapper) {
+    timerWrapper.innerText = "Try after sometime";
+    timerWrapper.style.setProperty("font-size", "14px", "important");
+    timerWrapper.style.setProperty("color", "red", "important");
+  }
 
   if (resendBtn) {
     resendBtn.disabled = true;
@@ -78,24 +117,56 @@ function startOtpTimer() {
     resendBtn.style.setProperty("cursor", "not-allowed", "important");
   }
 
-  const timer = setInterval(() => {
+  return "No attempts left";
+}
+
+  if (attemptsText) {
+    attemptsText.innerText = `${attemptsLeft}/3 attempt(s) left`;
+  }
+
+  runOtpTimer();
+
+  return `${attemptsLeft}/3 attempt(s) left`;
+}
+
+/**
+ * Common timer function
+ */
+function runOtpTimer() {
+  const resendBtn = document.querySelector(".field-resendotpbtn button");
+  const timerText = document.querySelector(
+    ".field-resend-and-attempts-text strong",
+  );
+
+  let timeLeft = 5;
+
+  clearInterval(otpTimerInterval);
+
+  if (resendBtn) {
+    resendBtn.disabled = true;
+    resendBtn.style.setProperty("background", "#999", "important");
+    resendBtn.style.setProperty("cursor", "not-allowed", "important");
+  }
+
+  if (timerText) {
+    timerText.innerText = `${timeLeft} secs`;
+  }
+
+  otpTimerInterval = setInterval(() => {
+    timeLeft -= 1;
+
     if (timerText) {
       timerText.innerText = `${timeLeft} secs`;
     }
 
-    timeLeft -= 1;
+    if (timeLeft <= 0) {
+      clearInterval(otpTimerInterval);
 
-    if (timeLeft < 0) {
-      clearInterval(timer);
-
-      const attemptsLeft = Number(sessionStorage.getItem("otpAttemptsLeft"));
+      const attemptsLeft = Number(
+        sessionStorage.getItem("otpAttemptsLeft") || "3",
+      );
 
       if (attemptsLeft <= 0) {
-        if (resendBtn) {
-          resendBtn.disabled = true;
-          resendBtn.style.setProperty("background", "#999", "important");
-          resendBtn.style.setProperty("cursor", "not-allowed", "important");
-        }
         return;
       }
 
@@ -110,48 +181,6 @@ function startOtpTimer() {
       }
     }
   }, 1000);
-
-  return "Timer Started";
-}
-
-/**
- * Reduces OTP resend attempts on resend click
- * @returns {string}
- */
-function updateOtpAttempts() {
-  const attemptsText = document.querySelector(
-    ".field-attempts-left p p, .field-attempts-left p",
-  );
-  const resendBtn = document.querySelector(".field-resendotpbtn button");
-
-  let attemptsLeft = Number(sessionStorage.getItem("otpAttemptsLeft"));
-
-  if (!attemptsLeft) {
-    attemptsLeft = 3;
-  }
-
-  attemptsLeft -= 1;
-  sessionStorage.setItem("otpAttemptsLeft", attemptsLeft);
-
-  if (attemptsLeft <= 0) {
-    if (attemptsText) {
-      attemptsText.innerText = "Try again sometime.";
-    }
-
-    if (resendBtn) {
-      resendBtn.disabled = true;
-      resendBtn.style.setProperty("background", "#999", "important");
-      resendBtn.style.setProperty("cursor", "not-allowed", "important");
-    }
-
-    return "Try again sometime.";
-  }
-
-  if (attemptsText) {
-    attemptsText.innerText = `${attemptsLeft}/3 attempt(s) left`;
-  }
-
-  return `${attemptsLeft}/3 attempt(s) left`;
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -161,5 +190,5 @@ export {
   submitFormArrayToString,
   maskMobileNumber,
   startOtpTimer,
-  updateOtpAttempts,
+  handleResendOtpAttempt,
 };
