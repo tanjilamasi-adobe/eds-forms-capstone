@@ -62,7 +62,7 @@ function maskMobileNumber(mobileNumber) {
 
 /**
  * Starts OTP resend timer
- * @returns {string} returns timer started message
+ * @returns {string}
  */
 function startOtpTimer() {
   const resendBtn = document.querySelector('.field-resendotpbtn button');
@@ -72,24 +72,24 @@ function startOtpTimer() {
 
   if (resendBtn) {
     resendBtn.disabled = true;
-  }
-
-  if (timerText) {
-    timerText.innerText = `${timeLeft} secs`;
+    resendBtn.style.background = '#999';
+    resendBtn.style.cursor = 'not-allowed';
   }
 
   const timer = setInterval(() => {
-    timeLeft -= 1;
-
     if (timerText) {
       timerText.innerText = `${timeLeft} secs`;
     }
 
-    if (timeLeft <= 0) {
+    timeLeft -= 1;
+
+    if (timeLeft < 0) {
       clearInterval(timer);
 
       if (resendBtn) {
         resendBtn.disabled = false;
+        resendBtn.style.background = 'blue';
+        resendBtn.style.cursor = 'pointer';
       }
 
       if (timerText) {
@@ -100,9 +100,44 @@ function startOtpTimer() {
 
   return 'Timer Started';
 }
+/**
+ * Handles resend OTP attempts in frontend
+ * @returns {string}
+ */
+function handleResendOtpAttempt() {
+  const resendBtn = document.querySelector('.field-resendotpbtn button');
+  const timerText = document.querySelector('.field-resend-and-attempts-text strong');
+  const attemptsText = document.querySelector('.field-resend-and-attempts-text');
 
+  let attemptsLeft = Number(sessionStorage.getItem('otpAttemptsLeft'));
+
+  if (!attemptsLeft) {
+    attemptsLeft = 3;
+  }
+
+  attemptsLeft -= 1;
+  sessionStorage.setItem('otpAttemptsLeft', attemptsLeft);
+
+  if (attemptsLeft <= 0) {
+    if (resendBtn) {
+      resendBtn.disabled = true;
+      resendBtn.style.background = '#999';
+      resendBtn.style.cursor = 'not-allowed';
+    }
+
+    if (attemptsText) {
+      attemptsText.innerText = 'Try again sometime.';
+    }
+
+    return 'No attempts left';
+  }
+
+  startOtpTimer();
+
+  return `${attemptsLeft} attempts left`;
+}
 
 // eslint-disable-next-line import/prefer-default-export
 export {
-  getFullName, days, submitFormArrayToString, maskMobileNumber, startOtpTimer,
+  getFullName, days, submitFormArrayToString, maskMobileNumber, startOtpTimer, handleResendOtpAttempt
 };
