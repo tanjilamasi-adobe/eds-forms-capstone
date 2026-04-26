@@ -60,9 +60,49 @@ function maskMobileNumber(mobileNumber) {
  * Custom Functions
 */
 
+/**
+ * Starts OTP resend timer
+ * @returns {string} returns timer started message
+ */
+function startOtpTimer() {
+  const resendBtn = document.querySelector('.field-resendotpbtn button');
+  const timerText = document.querySelector('.field-resend-and-attempts-text strong');
+
+  let timeLeft = 30;
+
+  if (resendBtn) {
+    resendBtn.disabled = true;
+  }
+
+  if (timerText) {
+    timerText.innerText = `${timeLeft} secs`;
+  }
+
+  const timer = setInterval(() => {
+    timeLeft -= 1;
+
+    if (timerText) {
+      timerText.innerText = `${timeLeft} secs`;
+    }
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+
+      if (resendBtn) {
+        resendBtn.disabled = false;
+      }
+
+      if (timerText) {
+        timerText.innerText = '0 secs';
+      }
+    }
+  }, 1000);
+
+  return 'Timer Started';
+}
 
 
 // eslint-disable-next-line import/prefer-default-export
 export {
-  getFullName, days, submitFormArrayToString, maskMobileNumber,
+  getFullName, days, submitFormArrayToString, maskMobileNumber, startOtpTimer,
 };
